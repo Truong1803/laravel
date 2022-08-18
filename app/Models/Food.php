@@ -12,5 +12,10 @@ class Food extends Model
     protected $table = 'food';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $dateFormat = 'h:m:s';
+    protected $fillable = ['name', 'count', 'description', 'category_id', 'image_path'];
+    // protected $dateFormat = 'h:m:s';
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
